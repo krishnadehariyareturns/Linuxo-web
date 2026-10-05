@@ -7,7 +7,7 @@
     "description": "Linuxo brings the everyday tools your community needs into one calm, capable Discord bot — so conversations stay moving and admins stay in the loop.",
     "statusLabel": "Discord bot · ready to deploy",
     "tagline": "Discord, but with a little Linux.",
-    "copyright": "© 2024 Linuxo"
+    "copyright": "© 2026 Linuxo"
   },
   "links": {
     "invite": "https://discord.com/oauth2/authorize?client_id=YOUR_LINUXO_CLIENT_ID&scope=bot%20applications.commands&permissions=277025770048",
