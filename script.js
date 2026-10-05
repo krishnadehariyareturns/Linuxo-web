@@ -17,14 +17,20 @@ const defaultConfig = {
     terms: "/terms"
   },
   palette: {
-    ink: "#11110f",
-    inkSoft: "#1a1915",
-    paper: "#f2f0e9",
-    paperDark: "#e5e2d9",
-    muted: "#77756d",
-    mutedDark: "#9b988e",
-    lime: "#d2f45b",
-    limeBright: "#e2ff76"
+    ink: "#F5F8FF",
+    inkSoft: "#D2E1F7",
+    paper: "#010817",
+    paperDark: "#081225",
+    muted: "#A0B2CF",
+    mutedDark: "#7F96BA",
+    blue: "#1684FF",
+    blueBright: "#61B4FF",
+    terminal: "#091737",
+    terminalBorder: "#18366F",
+    terminalText: "#F5F8FF",
+    command: "#6EAEFF",
+    prompt: "#3278DB",
+    cursor: "#1684FF"
   },
   settings: {
     inviteLabel: "Add to Discord",
@@ -90,7 +96,9 @@ function applyConfig(config) {
     if (value) element.textContent = value;
   });
 
-  document.title = `${site.name} — ${site.title.replace("\n", " ")}`;
+  document.title = `${site.name} — ${site.title.replace(/\n/g, " ")}`;
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", palette.paper);
+  document.querySelector('meta[name="description"]')?.setAttribute("content", site.description);
 }
 
 async function loadConfig() {
@@ -108,20 +116,33 @@ async function loadConfig() {
 const menuToggle = document.querySelector(".menu-toggle");
 const mobileMenu = document.querySelector(".mobile-menu");
 
-menuToggle?.addEventListener("click", () => {
-  const isOpen = mobileMenu.classList.toggle("open");
+function setMenuOpen(isOpen) {
+  if (!menuToggle || !mobileMenu) return;
+  mobileMenu.classList.toggle("open", isOpen);
+  mobileMenu.inert = !isOpen;
   menuToggle.setAttribute("aria-expanded", String(isOpen));
   menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
   mobileMenu.setAttribute("aria-hidden", String(!isOpen));
+}
+
+menuToggle?.addEventListener("click", () => {
+  setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
 });
 
 document.querySelectorAll(".mobile-menu a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-    menuToggle?.setAttribute("aria-expanded", "false");
-    menuToggle?.setAttribute("aria-label", "Open menu");
-    mobileMenu?.setAttribute("aria-hidden", "true");
-  });
+  link.addEventListener("click", () => setMenuOpen(false));
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && menuToggle?.getAttribute("aria-expanded") === "true") {
+    setMenuOpen(false);
+    menuToggle.focus();
+  }
+});
+
+const desktopViewport = window.matchMedia("(min-width: 901px)");
+desktopViewport.addEventListener("change", (event) => {
+  if (event.matches) setMenuOpen(false);
 });
 
 loadConfig();

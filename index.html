@@ -3,168 +3,156 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#11110f" />
+    <meta name="theme-color" content="#010817" />
     <meta name="description" content="Linuxo is a calm, capable Discord bot for communities that like to keep things moving." />
     <title>Linuxo — your server's secret weapon</title>
+    <link rel="icon" type="image/png" href="assets/linuxo-mark.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="assets/linuxo-blue-banner.webp" type="image/webp" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-shell">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-arrow" viewBox="0 0 20 20"><path d="M4 10h12M11 5l5 5-5 5" /></symbol>
+      <symbol id="icon-external" viewBox="0 0 20 20"><path d="M5 15 15 5M5 5h10v10" /></symbol>
+      <symbol id="icon-terminal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3" /><path d="m7 9 3 3-3 3m6 0h4" /></symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 4-4 7-8 9-4-2-8-5-8-9V6l8-3Z" /><path d="m8 12 3 3 5-6" /></symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z" /></symbol>
+    </svg>
+
+    <div class="page-shell" id="top">
       <header class="site-header">
         <a class="brand" href="#top" aria-label="Linuxo home">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M6 8.5V6.8A2.8 2.8 0 0 1 8.8 4h6.4A2.8 2.8 0 0 1 18 6.8v10.4a2.8 2.8 0 0 1-2.8 2.8H8.8A2.8 2.8 0 0 1 6 17.2v-1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-              <path d="m3.5 9 2.6 3-2.6 3M8.5 15h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
+          <img class="brand-mark" src="assets/linuxo-mark.png" alt="" width="192" height="180" />
           <span class="brand-name" data-site="name">Linuxo</span>
+          <span class="brand-slash" aria-hidden="true">/</span>
         </a>
-
         <nav class="desktop-nav" aria-label="Main navigation">
-          <a href="#what-it-does">What it does</a>
-          <a href="#commands">Commands</a>
-          <a href="#start">Get started</a>
+          <a href="#what-it-does"><span aria-hidden="true">01.</span> What it does</a>
+          <a href="#commands"><span aria-hidden="true">02.</span> Commands</a>
+          <a href="#start"><span aria-hidden="true">03.</span> Get started</a>
         </nav>
-
-        <a class="button button-small button-outline nav-cta" data-link="invite" href="https://discord.com/oauth2/authorize" target="_blank" rel="noreferrer">
+        <a class="button button-small button-outline nav-cta" data-link="invite" href="https://discord.com/oauth2/authorize" target="_blank" rel="noopener noreferrer">
           <span data-text="inviteLabel">Add to Discord</span>
-          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.3 8h9.4M8.8 3.9 12.9 8l-4.1 4.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-external" /></svg>
         </a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
-          <span></span><span></span>
-        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
       </header>
 
-      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true" inert>
         <nav aria-label="Mobile navigation">
-          <a href="#what-it-does">What it does <span>01</span></a>
-          <a href="#commands">Commands <span>02</span></a>
-          <a href="#start">Get started <span>03</span></a>
+          <a href="#what-it-does"><span>What it does</span><span class="menu-index">01</span></a>
+          <a href="#commands"><span>Commands</span><span class="menu-index">02</span></a>
+          <a href="#start"><span>Get started</span><span class="menu-index">03</span></a>
         </nav>
-        <a class="button button-primary mobile-menu-cta" data-link="invite" href="https://discord.com/oauth2/authorize" target="_blank" rel="noreferrer"><span data-text="inviteLabel">Add to Discord</span><span aria-hidden="true">↗</span></a>
+        <a class="button button-primary mobile-menu-cta" data-link="invite" href="https://discord.com/oauth2/authorize" target="_blank" rel="noopener noreferrer"><span data-text="inviteLabel">Add to Discord</span><svg class="icon" aria-hidden="true"><use href="#icon-external" /></svg></a>
       </div>
 
-      <main id="top">
-        <section class="hero section-grid">
+      <main id="main-content" tabindex="-1">
+        <section class="hero content-section" aria-labelledby="hero-title">
           <div class="hero-copy">
-            <div class="eyebrow reveal"><span class="pulse-dot"></span><span data-site="statusLabel">Discord bot · ready to deploy</span></div>
-            <h1 class="reveal reveal-delay-1" data-site="title">Your server's<br /><em>secret weapon.</em></h1>
+            <div class="eyebrow reveal"><span class="pulse-dot" aria-hidden="true"></span><span data-site="statusLabel">Discord bot · ready to deploy</span></div>
+            <h1 class="reveal reveal-delay-1" id="hero-title" data-site="title">Your server's<br /><em>secret weapon.</em></h1>
             <p class="hero-description reveal reveal-delay-2" data-site="description">Linuxo brings the everyday tools your community needs into one calm, capable Discord bot — so conversations stay moving and admins stay in the loop.</p>
             <div class="hero-actions reveal reveal-delay-3">
-              <a class="button button-primary" data-link="invite" href="https://discord.com/oauth2/authorize" target="_blank" rel="noreferrer">
-                <span data-text="inviteLabel">Add to Discord</span>
-                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.3 8h9.4M8.8 3.9 12.9 8l-4.1 4.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-              </a>
+              <a class="button button-primary" data-link="invite" href="https://discord.com/oauth2/authorize" target="_blank" rel="noopener noreferrer"><span data-text="inviteLabel">Add to Discord</span><svg class="icon" aria-hidden="true"><use href="#icon-arrow" /></svg></a>
               <a class="text-link" href="#commands">Explore commands <span aria-hidden="true">↓</span></a>
             </div>
-            <div class="hero-note reveal reveal-delay-4"><span class="shield-icon" aria-hidden="true">✦</span><span data-site="tagline">Discord, but with a little Linux.</span></div>
+            <div class="hero-note reveal reveal-delay-4"><svg class="icon" aria-hidden="true"><use href="#icon-terminal" /></svg><span data-site="tagline">Discord, but with a little Linux.</span></div>
           </div>
 
-          <div class="hero-art reveal reveal-delay-2" aria-label="A preview of Linuxo answering a Discord command">
-            <div class="art-glow"></div>
-            <div class="orbit orbit-one"></div>
-            <div class="orbit orbit-two"></div>
-            <div class="orbit-dot orbit-dot-one"></div>
-            <div class="orbit-dot orbit-dot-two"></div>
-            <div class="float-label float-label-top"><span class="mini-dot"></span>always on</div>
-            <div class="float-label float-label-bottom">/built for community <span>↗</span></div>
-
-            <div class="bot-window">
+          <div class="hero-art reveal reveal-delay-2">
+            <div class="brand-scene">
+              <img src="assets/linuxo-blue-banner.webp" alt="The Linuxo swirl and wordmark surrounded by blue terminal, rocket, and community icons" width="1536" height="1024" fetchpriority="high" />
+              <div class="scene-caption"><span class="scene-path">~/linuxo</span><span>built for community <span aria-hidden="true">↗</span></span></div>
+            </div>
+            <div class="terminal-panel hero-terminal" role="region" aria-label="Linuxo terminal preview">
               <div class="window-topbar">
-                <div class="window-lights"><i></i><i></i><i></i></div>
-                <span class="window-title"><span class="window-terminal-mark">⌁</span> linuxo / live</span>
-                <span class="window-menu">•••</span>
+                <div class="window-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+                <span>linuxo — bash</span><span class="window-badge">preview</span>
               </div>
-              <div class="server-line">
-                <div class="server-avatar">L</div>
-                <div><strong>linuxo lounge</strong><span># general</span></div>
-                <span class="online-count"><b></b> 24 online</span>
+              <div class="terminal-body">
+                <div class="terminal-line"><span class="terminal-prompt">linuxo@community</span><span class="terminal-path">:~$</span> <code>./linuxo --preview</code></div>
+                <div class="terminal-output"><span class="terminal-success">[ok]</span> Community tools initialized.</div>
+                <div class="terminal-output"><span class="terminal-success">[ok]</span> A little less busywork. A lot more flow.</div>
+                <div class="terminal-line terminal-ready"><span class="terminal-prompt">linuxo@community</span><span class="terminal-path">:~$</span> <span class="terminal-cursor" aria-hidden="true"></span></div>
               </div>
-              <div class="chat-area">
-                <div class="chat-date"><span></span> today <span></span></div>
-                <div class="chat-message user-message">
-                  <div class="chat-avatar user-avatar">M</div>
-                  <div><div class="message-meta"><strong>mara</strong><time>10:42 AM</time></div><p>Can we get a quick poll going?</p></div>
-                </div>
-                <div class="chat-message bot-message">
-                  <div class="chat-avatar bot-avatar">l</div>
-                  <div class="message-body"><div class="message-meta"><strong>linuxo</strong><span class="bot-tag">BOT</span><time>10:42 AM</time></div><p>On it. What are we deciding?</p><div class="command-card"><div class="command-head"><span class="command-icon">⌁</span><div><strong>/poll</strong><span>Start a poll</span></div><span class="command-ok">✓</span></div><div class="poll-question">What should we watch tonight?</div><div class="poll-options"><span>◉ <b>Movie</b></span><span>◯ <b>Series</b></span><span>◯ <b>Surprise me</b></span></div><div class="poll-footer"><span>Poll closes in 24h</span><span class="vote-count">0 votes</span></div></div></div>
-                </div>
-              </div>
-              <div class="window-input"><span>Message #general</span><span>＋　☺　➤</span></div>
             </div>
           </div>
         </section>
 
-        <div class="signal-strip" aria-label="Linuxo capabilities">
-          <div class="strip-inner">
-            <span>MODERATION</span><i>✦</i><span>COMMUNITY</span><i>✦</i><span>AUTOMATION</span><i>✦</i><span>GOOD VIBES</span><i>✦</i><span>MODERATION</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
-          </div>
+        <div class="signal-strip content-section" aria-label="Linuxo capabilities">
+          <span class="strip-label"><span aria-hidden="true">$</span> built to handle</span>
+          <div class="strip-capabilities"><span>moderation</span><span>community</span><span>automation</span><span>good vibes</span></div>
+          <span class="strip-end" aria-hidden="true">[ all systems go ]</span>
         </div>
 
-        <section class="intro-section content-section" id="what-it-does">
-          <div class="section-kicker"><span>01</span><span class="kicker-line"></span><span>THE POINT</span></div>
+        <section class="intro-section content-section" id="what-it-does" aria-labelledby="features-title">
+          <div class="section-kicker"><span>01</span><span class="kicker-line"></span><span>~/what-it-does</span></div>
           <div class="intro-layout">
-            <h2>Less babysitting.<br /><span>More belonging.</span></h2>
-            <div class="intro-copy"><p>Running a server is a lot of small jobs. Linuxo handles the busywork with a little personality, leaving you more time for the moments that make your community yours.</p><a class="arrow-link" href="#start">See how it fits <span>↗</span></a></div>
+            <h2 id="features-title">Less babysitting.<br /><span>More belonging.</span></h2>
+            <div class="intro-copy"><p>Running a server is a lot of small jobs. Linuxo handles the busywork with a little personality, leaving you more time for the moments that make your community yours.</p><a class="arrow-link" href="#start">See how it fits <svg class="icon" aria-hidden="true"><use href="#icon-external" /></svg></a></div>
           </div>
-        </section>
-
-        <section class="feature-section content-section">
           <div class="feature-grid">
-            <article class="feature-card feature-card-lime">
-              <div class="card-number">01 / 03</div>
-              <div class="feature-icon icon-spark"><span>✦</span></div>
+            <article class="feature-card feature-card-blue">
+              <div class="card-topline"><span class="card-number">01 / community</span><svg class="feature-icon" aria-hidden="true"><use href="#icon-spark" /></svg></div>
               <h3>Keep the<br />energy up.</h3>
               <p>Handy commands for the little things: polls, reminders, welcome messages, and more ways to pull people in.</p>
-              <div class="card-arrow">↗</div>
+              <div class="card-command"><code>/poll</code><span aria-hidden="true">↗</span></div>
             </article>
-            <article class="feature-card feature-card-dark">
-              <div class="card-number">02 / 03</div>
-              <div class="feature-icon icon-shield"><span>⌁</span></div>
+            <article class="feature-card">
+              <div class="card-topline"><span class="card-number">02 / moderation</span><svg class="feature-icon" aria-hidden="true"><use href="#icon-shield" /></svg></div>
               <h3>Make room<br />for humans.</h3>
               <p>Useful guardrails and clear tools help your moderators protect the tone without killing the vibe.</p>
-              <div class="card-arrow">↗</div>
+              <div class="card-command"><span>less noise. more signal.</span><span aria-hidden="true">↗</span></div>
             </article>
-            <article class="feature-card feature-card-outline">
-              <div class="card-number">03 / 03</div>
-              <div class="feature-icon icon-command"><span>/</span></div>
+            <article class="feature-card">
+              <div class="card-topline"><span class="card-number">03 / your workflow</span><svg class="feature-icon" aria-hidden="true"><use href="#icon-terminal" /></svg></div>
               <h3>One bot.<br />Many rhythms.</h3>
               <p>Start small, then make Linuxo part of the way your server already works. No heavy setup ceremony required.</p>
-              <div class="card-arrow">↗</div>
+              <div class="card-command"><code>/help</code><span aria-hidden="true">↗</span></div>
             </article>
           </div>
         </section>
 
-        <section class="commands-section content-section" id="commands">
-          <div class="section-kicker"><span>02</span><span class="kicker-line"></span><span>THE TOOLKIT</span></div>
-          <div class="commands-heading"><h2>A command for<br /><span>that.</span></h2><p>Small shortcuts that make a big difference when your server is in motion.</p></div>
-          <div class="commands-list">
-            <div class="command-row"><div class="row-command"><span>/</span> poll</div><div class="row-description">Ask the room. Get a read.</div><div class="row-action">↗</div></div>
-            <div class="command-row"><div class="row-command"><span>/</span> remind</div><div class="row-description">Put the important thing on a timer.</div><div class="row-action">↗</div></div>
-            <div class="command-row"><div class="row-command"><span>/</span> welcome</div><div class="row-description">Give new people a way in.</div><div class="row-action">↗</div></div>
-            <div class="command-row"><div class="row-command"><span>/</span> help</div><div class="row-description">Find the right tool, right away.</div><div class="row-action">↗</div></div>
+        <section class="commands-section content-section" id="commands" aria-labelledby="commands-title">
+          <div class="section-kicker"><span>02</span><span class="kicker-line"></span><span>~/commands</span></div>
+          <div class="commands-heading"><h2 id="commands-title">A command for<br /><span>that.</span><span class="heading-cursor" aria-hidden="true">_</span></h2><p>Small shortcuts that make a big difference when your server is in motion.</p></div>
+          <div class="toolkit-layout">
+            <div class="commands-list" aria-label="Available command examples">
+              <div class="command-row"><code class="row-command">/poll</code><p class="row-description">Ask the room. Get a read.</p><span class="command-category">community</span></div>
+              <div class="command-row"><code class="row-command">/remind</code><p class="row-description">Put the important thing on a timer.</p><span class="command-category">utility</span></div>
+              <div class="command-row"><code class="row-command">/welcome</code><p class="row-description">Give new people a way in.</p><span class="command-category">community</span></div>
+              <div class="command-row"><code class="row-command">/help</code><p class="row-description">Find the right tool, right away.</p><span class="command-category">essentials</span></div>
+            </div>
+            <div class="terminal-panel command-preview" role="region" aria-label="Example of Linuxo's poll command">
+              <div class="window-topbar"><span><span class="terminal-symbol" aria-hidden="true">&gt;_</span> command preview</span><span class="window-badge">/poll</span></div>
+              <div class="preview-body">
+                <div class="preview-command"><span class="terminal-prompt" aria-hidden="true">$</span> <code>/poll</code> <span class="terminal-comment"># general</span></div>
+                <div class="preview-bot"><img src="assets/linuxo-mark.png" alt="" width="192" height="180" /><strong>Linuxo</strong><span class="bot-tag">BOT</span><span class="preview-label">example</span></div>
+                <p class="poll-question">What should we watch tonight?</p>
+                <div class="poll-options"><div class="poll-option poll-option-selected"><span aria-hidden="true">◉</span> Movie</div><div class="poll-option"><span aria-hidden="true">○</span> Series</div><div class="poll-option"><span aria-hidden="true">○</span> Surprise me</div></div>
+                <div class="poll-footer"><span>closes in 24h</span><span>0 votes</span></div>
+              </div>
+            </div>
           </div>
-          <div class="commands-footnote"><span class="pulse-dot"></span> Slash commands, right where your community already is.</div>
+          <div class="commands-footnote"><svg class="icon" aria-hidden="true"><use href="#icon-terminal" /></svg><span>Slash commands, right where your community already is.</span></div>
         </section>
 
-        <section class="invite-section content-section" id="start">
+        <section class="invite-section content-section" id="start" aria-labelledby="invite-title">
           <div class="invite-card">
-            <div class="invite-sun"></div>
-            <div class="invite-content"><div class="section-kicker light"><span>03</span><span class="kicker-line"></span><span>YOUR MOVE</span></div><h2>Give your server<br /><em>something good.</em></h2><p>Linuxo is ready when you are. Bring a little more flow to the place you built.</p><a class="button button-dark" data-link="invite" href="https://discord.com/oauth2/authorize" target="_blank" rel="noreferrer"><span data-text="inviteLabel">Add to Discord</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.3 8h9.4M8.8 3.9 12.9 8l-4.1 4.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></a></div>
-            <div class="invite-mark" aria-hidden="true"><span>l</span><i></i><i></i><i></i></div>
+            <div class="invite-content"><div class="section-kicker"><span>03</span><span class="kicker-line"></span><span>~/get-started</span></div><h2 id="invite-title">Give your server<br /><em>something good.</em></h2><p>Linuxo is ready when you are. Bring a little more flow to the place you built.</p><a class="button button-primary" data-link="invite" href="https://discord.com/oauth2/authorize" target="_blank" rel="noopener noreferrer"><span data-text="inviteLabel">Add to Discord</span><svg class="icon" aria-hidden="true"><use href="#icon-external" /></svg></a><div class="deploy-steps"><span>01 invite</span><span aria-hidden="true">→</span><span>02 authorize</span><span aria-hidden="true">→</span><code>03 /help</code></div></div>
+            <div class="invite-art" aria-hidden="true"><div class="invite-orbit invite-orbit-one"></div><div class="invite-orbit invite-orbit-two"></div><img class="invite-mark" src="assets/linuxo-mark.png" alt="" width="192" height="180" loading="lazy" /><span class="invite-art-label">hello, community<span class="terminal-cursor"></span></span></div>
           </div>
         </section>
       </main>
 
-      <footer class="site-footer">
-        <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 8.5V6.8A2.8 2.8 0 0 1 8.8 4h6.4A2.8 2.8 0 0 1 18 6.8v10.4a2.8 2.8 0 0 1-2.8 2.8H8.8A2.8 2.8 0 0 1 6 17.2v-1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /><path d="m3.5 9 2.6 3-2.6 3M8.5 15h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span class="brand-name" data-site="name">Linuxo</span></a>
-        <div class="footer-links"><a data-link="github" href="https://github.com/linuxo-bot/linuxo" target="_blank" rel="noreferrer" data-label="githubLabel">View on GitHub</a><a data-link="discord" href="https://discord.gg/linuxo" target="_blank" rel="noreferrer" data-label="discordLabel">Join the Discord</a><a data-link="privacy" href="/privacy">Privacy</a><a data-link="terms" href="/terms">Terms</a></div>
-        <div class="footer-meta"><span data-site="copyright">© 2024 Linuxo</span><span>Made with intention.</span></div>
+      <footer class="site-footer content-section">
+        <div class="footer-main"><a class="brand footer-brand" href="#top" aria-label="Linuxo home"><img class="brand-mark" src="assets/linuxo-mark.png" alt="" width="192" height="180" loading="lazy" /><span class="brand-name" data-site="name">Linuxo</span></a><div class="footer-links"><a data-link="github" href="https://github.com/linuxo-bot/linuxo" target="_blank" rel="noopener noreferrer" data-label="githubLabel">View on GitHub</a><a data-link="discord" href="https://discord.gg/linuxo" target="_blank" rel="noopener noreferrer" data-label="discordLabel">Join the Discord</a><a data-link="privacy" href="/privacy">Privacy</a><a data-link="terms" href="/terms">Terms</a></div></div>
+        <div class="footer-meta"><span data-site="copyright">© 2024 Linuxo</span><span><span class="terminal-prompt" aria-hidden="true">$</span> Made with intention. <span class="footer-prompt" aria-hidden="true">_</span></span><a href="#top">Back to top ↑</a></div>
       </footer>
     </div>
     <script src="script.js"></script>
